@@ -826,7 +826,17 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                             Send
                                         </PrimaryButton>
                                     ) : (
-                                        <PrimaryButton onClick={() => send()}>
+                                        <PrimaryButton
+                                            onClick={() => {
+                                                send();
+                                                setTimeout(() => {
+                                                    setFormData({
+                                                        value: '',
+                                                        address: '',
+                                                    });
+                                                }, 100);
+                                            }}
+                                        >
                                             Send
                                         </PrimaryButton>
                                     )}
